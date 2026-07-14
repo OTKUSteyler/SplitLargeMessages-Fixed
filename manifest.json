@@ -1,14 +1,21 @@
 {
-    "name": "Template Plugin",
-    "description": "A plugin for use as a template.",
+    "name": "SplitLargeMessages",
+    "description": "Automatically splits messages larger than 2000/4000 characters",
     "authors": [
         {
-            "name": "You!",
-            "id": "YOUR_ID_HERE"
+            "name": "sunnie",
+            "id": "406028027768733696"
         }
+
+        { 
+            "name": "btmc727",
+            "id" "554071670143451176" 
+            
+        }, 
+    
     ],
     "main": "src/index.ts",
     "vendetta": {
-        "icon": "ic_badge_staff"
+        "icon": "ic_messages"
     }
 }
