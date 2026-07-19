@@ -1,20 +1,20 @@
-import { ReactNative } from "@vendetta/metro/common";
-import { ErrorBoundary, Forms } from "@vendetta/ui/components";
-import { useProxy } from "@vendetta/storage";
 import { storage } from "@vendetta/plugin";
+import { useProxy } from "@vendetta/storage";
+import { General } from "@vendetta/ui/components";
 
-export default () => {
+const { FormSwitchRow, FormSection } = General.Forms;
+
+export default function Settings() {
     useProxy(storage);
+
     return (
-        <ErrorBoundary>
-            <ReactNative.ScrollView>
-                <Forms.FormSwitchRow
-                    label="Split messages on words instead of newlines"
-                    subLabel="Results in the lowest amount of messages"
-                    onValueChange={(v: boolean) => (storage.splitOnWords = v)}
-                    value={storage.splitOnWords}
-                />
-            </ReactNative.ScrollView>
-        </ErrorBoundary>
+        <FormSection title="Split Large Messages">
+            <FormSwitchRow
+                label="Split on words"
+                subLabel="Split on word boundaries instead of newlines when a single line exceeds the limit"
+                value={storage.splitOnWords}
+                onValueChange={(v: boolean) => (storage.splitOnWords = v)}
+            />
+        </FormSection>
     );
-};
+}
