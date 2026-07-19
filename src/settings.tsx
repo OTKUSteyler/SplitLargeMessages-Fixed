@@ -1,11 +1,15 @@
+import { findByProps } from "@vendetta/metro";
 import { storage } from "@vendetta/plugin";
 import { useProxy } from "@vendetta/storage";
-import { General } from "@vendetta/ui/components";
 
-const { FormSwitchRow, FormSection } = General.Forms;
+const Forms = findByProps("FormSwitchRow", "FormSection");
 
 export default function Settings() {
     useProxy(storage);
+
+    if (!Forms) return null;
+
+    const { FormSwitchRow, FormSection } = Forms;
 
     return (
         <FormSection title="Split Large Messages">
